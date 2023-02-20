@@ -17,6 +17,7 @@
 }
 @media screen and (max-width: 583px) {
   .close {
+    top: -36px;
     right: 0;
     width: 20px;
     height: 20px;

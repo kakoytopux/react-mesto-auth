@@ -45,6 +45,8 @@
 @import url(./blocks/popup/__status-icon/popup__status-icon.css);
 @import url(./blocks/popup/__status-icon/_success/popup__status-icon_success.css);
 @import url(./blocks/popup/__status-icon/_error/popup__status-icon_error.css);
+@import url(./blocks/popup/__container/_status/popup__container_type_status.css);
+@import url(./blocks/popup/__title/_status/popup__title_type_status.css);
 
 @import url(./blocks/button-hover/button-hover.css);
 
