@@ -10,7 +10,7 @@ export default function AddPlacePopup(props) {
     props.onAddPlace({
       name: fieldCardNameRef.current.value,
       link: fieldCardLinkRef.current.value
-    })
+    });
   }
   return (
     <PopupWithForm title="Новое место" name="add" children={

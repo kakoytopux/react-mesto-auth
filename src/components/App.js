@@ -12,7 +12,7 @@ export default function App() {
   const navigate = useNavigate();
   useEffect(() => {
     tokenCheckValid();
-  }, []);
+  }, [userEmail, loggedIn]);
   
   return (
     <Routes>

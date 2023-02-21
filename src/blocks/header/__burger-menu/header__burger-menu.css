@@ -3,6 +3,9 @@
 	gap: 6px;
   cursor: pointer;
   display: none;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }
 @media screen and (max-width: 583px) {
   .header__burger-menu {

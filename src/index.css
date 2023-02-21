@@ -30,6 +30,9 @@
 @import url(./blocks/header/__user-email/header__user-email.css);
 @import url(./blocks/header/__burger-menu/header__burger-menu.css);
 @import url(./blocks/header/__burger-menu-line/header__burger-menu-line.css);
+@import url(./blocks/header/_active/header_active.css);
+@import url(./blocks/header/__container/_active/header__container_active.css);
+@import url(./blocks/header/__burger-menu/_active/header__burger-menu_active.css);
 
 @import url(./blocks/close/close.css);
 
