@@ -15,8 +15,8 @@ export default function Header(props) {
         <p className="header__user-email">{userEmail}</p>
         <button onClick={onExitProfile} type="button" className="header__profile-exit">Выйти</button>
       </div>
-      <button type="button" onClick={menuStatus} className={`header__burger-menu ${menu && 'header__burger-menu_active'}`}>
-        <div className="header__burger-menu-container" style={menu && {display: 'hidden'}}>
+      <button type="button" onClick={menu ? offMenuStatus : onMenuStatus} className={`header__burger-menu ${menu && 'header__burger-menu_active'}`}>
+        <div className="header__burger-menu-container" style={menu ? {display: 'none'} : {display: 'flex'}}>
           <div className="header__burger-menu-line"></div>
           <div className="header__burger-menu-line"></div>
           <div className="header__burger-menu-line"></div>
@@ -31,7 +31,10 @@ export default function Header(props) {
     localStorage.removeItem('token');
     navigate('/sign-in');
   }
-  function menuStatus() {
+  function onMenuStatus() {
     setMenu(true);
+  }
+  function offMenuStatus() {
+    setMenu(false);
   }
 }

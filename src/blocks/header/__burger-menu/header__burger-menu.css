@@ -1,6 +1,4 @@
 .header__burger-menu {
-	flex-direction: column;
-	gap: 6px;
   cursor: pointer;
   display: none;
   border: 0;
@@ -9,6 +7,6 @@
 }
 @media screen and (max-width: 583px) {
   .header__burger-menu {
-    display: flex;
+    display: block;
   }
 }

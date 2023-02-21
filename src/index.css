@@ -33,6 +33,7 @@
 @import url(./blocks/header/_active/header_active.css);
 @import url(./blocks/header/__container/_active/header__container_active.css);
 @import url(./blocks/header/__burger-menu/_active/header__burger-menu_active.css);
+@import url(./blocks/header/__burger-menu-container/header__burger-menu-container.css);
 
 @import url(./blocks/close/close.css);
 

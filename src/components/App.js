@@ -11,18 +11,6 @@ export default function App() {
   const [userEmail, setUserEmail] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    tokenCheckValid();
-  }, [userEmail, loggedIn]);
-  
-  return (
-    <Routes>
-      <Route path='/sign-up' element={<Register />} />
-      <Route path='/sign-in' element={<Login setHandleLogin={setHandleLogin} />} />
-      <Route path='/' element={<ProtectedRoute element={Profile} userEmail={userEmail} loggedIn={loggedIn} />} />
-      <Route path='*' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
-    </Routes>
-  );
-  function tokenCheckValid() {
     if(localStorage.getItem('token')) {
       const jwt = localStorage.getItem('token');
       signApi.user(jwt)
@@ -33,7 +21,16 @@ export default function App() {
       })
       .catch(err => console.log(err))
     }
-  }
+  }, [userEmail, loggedIn, navigate]);
+  
+  return (
+    <Routes>
+      <Route path='/sign-up' element={<Register />} />
+      <Route path='/sign-in' element={<Login setHandleLogin={setHandleLogin} />} />
+      <Route path='/' element={<ProtectedRoute element={Profile} userEmail={userEmail} loggedIn={loggedIn} />} />
+      <Route path='*' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
+    </Routes>
+  );
   function setHandleLogin() {
     setLoggedIn(true);
   }
