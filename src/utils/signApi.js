@@ -31,7 +31,7 @@ class signApi {
     })
     .then(res => this._getResponseData(res))
   }
-  user(jwt) {
+  getUser(jwt) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {

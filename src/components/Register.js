@@ -7,14 +7,6 @@ import signApi from "../utils/signApi";
 export default function Register() {
   const [signUpStatus, setSignUpStatus] = useState(null);
   const [statusOpened, setStatusOpened] = useState(false);
-
-  return (
-    <>
-      <Header signLink='/sign-in' signText='Войти' />
-      <SignMain title='Регистрация' submitText='Зарегистрироваться' setData={setData} signUp={true} />
-      <InfoTooltip signUpStatus={signUpStatus} statusOpened={statusOpened} setStatusOpened={setStatusOpened} />
-    </>
-  );
   function setData(data) {
     signApi.signUp({
       pass: data.fieldPass.current.value,
@@ -30,4 +22,11 @@ export default function Register() {
       setStatusOpened(true);
     })
   }
+  return (
+    <>
+      <Header signLink='/sign-in' signText='Войти' />
+      <SignMain title='Регистрация' submitText='Зарегистрироваться' setData={setData} signUp={true} />
+      <InfoTooltip signUpStatus={signUpStatus} statusOpened={statusOpened} setStatusOpened={setStatusOpened} />
+    </>
+  );
 }

@@ -5,7 +5,11 @@ export default function SignMain(props) {
   const { title, submitText, signUp, setData } = props;
   const fieldPass = useRef();
   const fieldEmail = useRef();
-  
+  function onSubmitForm(evt) {
+    evt.preventDefault();
+
+    setData({fieldPass, fieldEmail})
+  }
   return (
     <main className="sign-content">
       <h1 className="sign-content__title">{title}</h1>
@@ -17,9 +21,4 @@ export default function SignMain(props) {
       {signUp ? <p className="sign-content__sign-in">Уже зарегистрированы? <Link to='/sign-in' className="sign-content__link-sign-in">Войти</Link></p> : ''}
     </main>
   );
-  function onSubmitForm(evt) {
-    evt.preventDefault();
-
-    setData({fieldPass, fieldEmail})
-  }
 }

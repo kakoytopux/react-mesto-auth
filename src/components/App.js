@@ -13,7 +13,7 @@ export default function App() {
   useEffect(() => {
     if(localStorage.getItem('token')) {
       const jwt = localStorage.getItem('token');
-      signApi.user(jwt)
+      signApi.getUser(jwt)
       .then(res => {
         setUserEmail(res.data.email);
         setHandleLogin();
@@ -22,7 +22,9 @@ export default function App() {
       .catch(err => console.log(err))
     }
   }, [userEmail, loggedIn, navigate]);
-  
+  function setHandleLogin() {
+    setLoggedIn(true);
+  }
   return (
     <Routes>
       <Route path='/sign-up' element={<Register />} />
@@ -31,7 +33,4 @@ export default function App() {
       <Route path='*' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
     </Routes>
   );
-  function setHandleLogin() {
-    setLoggedIn(true);
-  }
 }

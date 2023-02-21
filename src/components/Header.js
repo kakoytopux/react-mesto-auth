@@ -6,9 +6,19 @@ export default function Header(props) {
   const { signLink, signText, userEmail } = props;
   const navigate = useNavigate();
   const [menu, setMenu] = useState(false);
+  function onExitProfile() {
+    localStorage.removeItem('token');
+    navigate('/sign-in');
+  }
+  function onMenuStatus() {
+    setMenu(true);
+  }
+  function offMenuStatus() {
+    setMenu(false);
+  }
   return (
     <header className={`header ${menu && 'header_active'}`}>
-      <a href="#" className="header__logo-link" title="Mesto"></a>
+      <Link to='/' className="header__logo-link" title="Mesto"></Link>
       {localStorage.getItem('token') ?
       <>
       <div className={`header__container ${menu && 'header__container_active'}`}>
@@ -27,14 +37,4 @@ export default function Header(props) {
       }
     </header>
   );
-  function onExitProfile() {
-    localStorage.removeItem('token');
-    navigate('/sign-in');
-  }
-  function onMenuStatus() {
-    setMenu(true);
-  }
-  function offMenuStatus() {
-    setMenu(false);
-  }
 }

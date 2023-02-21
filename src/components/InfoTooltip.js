@@ -2,7 +2,9 @@ import React from "react";
 
 export default function InfoTooltip(props) {
   const { signUpStatus, statusOpened, setStatusOpened } = props;
-  
+  function onclose() {
+    setStatusOpened(false);
+  }
   return (
     <div className={`popup ${statusOpened ? 'popup_opened' : ''}`}>
       <div className="popup__container popup__container_type_status">
@@ -12,7 +14,4 @@ export default function InfoTooltip(props) {
       </div>
     </div>
   );
-  function onclose() {
-    setStatusOpened(false);
-  }
 }

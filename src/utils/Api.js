@@ -9,72 +9,64 @@ class Api {
     }
     return res.json();
   }
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: 'GET',
-      headers: this._headers
+  _getRequest(url, options) {
+    return fetch(`${this._baseUrl}${url}`, {
+      method: options.method,
+      headers: this._headers,
+      body: options.body
     })
     .then(res => this._getResponseData(res))
+  }
+  getInitialCards() {
+    return this._getRequest('/cards', {
+      method: 'GET'
+    })
   }
   infoProfile() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'GET',
-      headers: this._headers
+    return this._getRequest('/users/me', {
+      method: 'GET'
     })
-    .then(res => this._getResponseData(res))
   }
   editProfile(data) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._getRequest('/users/me', {
       method: 'PATCH',
-      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.about
       })
     })
-    .then(res => this._getResponseData(res))
   }
   addCard(data) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._getRequest('/cards', {
       method: 'POST',
-      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link,
       })
     })
-    .then(res => this._getResponseData(res))
   }
   deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: 'DELETE',
-      headers: this._headers
+    return this._getRequest(`/cards/${cardId}`, {
+      method: 'DELETE'
     })
-    .then(res => this._getResponseData(res))
   }
   likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: this._headers
+    return this._getRequest(`/cards/${cardId}/likes`, {
+      method: 'PUT'
     })
-    .then(res => this._getResponseData(res))
   }
   deleteLikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: this._headers
+    return this._getRequest(`/cards/${cardId}/likes`, {
+      method: 'DELETE'
     })
-    .then(res => this._getResponseData(res))
   }
   editAvatar(avatarLink) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._getRequest(`/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
       body: JSON.stringify({
         avatar: avatarLink
       })
     })
-    .then(res => this._getResponseData(res))
   }
 }
 
