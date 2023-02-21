@@ -12,7 +12,7 @@ export default function Register() {
     <>
       <Header signLink='/sign-in' signText='Войти' />
       <SignMain title='Регистрация' submitText='Зарегистрироваться' setData={setData} signUp={true} />
-      <InfoTooltip signUpStatus={signUpStatus} statusOpened={statusOpened} />
+      <InfoTooltip signUpStatus={signUpStatus} statusOpened={statusOpened} setStatusOpened={setStatusOpened} />
     </>
   );
   function setData(data) {

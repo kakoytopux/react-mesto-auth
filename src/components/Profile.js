@@ -29,7 +29,7 @@ export default class Profile extends React.Component {
   render() {
     return (
       <CurrentUserContext.Provider value={this.state.currentUser}>
-        <Header />
+        <Header userEmail={this.props.userEmail} />
         <Main
         onEditProfile={this.handleEditProfileClick.bind(this)}
         onAddPlace={this.handleAddPlaceClick.bind(this)}
